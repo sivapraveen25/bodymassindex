@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 150px
+        }
+        
+    .container{
+        width:400px;
+        height:500px;
+        border:none;
+        border-radius: 10px;
+        padding-left: 20px;
+        background-color: aqua;
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    }
+    h2{
+        text-align: center;
+       
+    }
+    td{
+        padding:20px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    button{
+        width:100px;
+        height:40px;
+        background-color:rgb(0, 255, 8);
+        border:none;
+        border-radius: 15px;
+    }
+    td input,p{
+        width:110px;
+        height: 30px;
+        border:none;
+        background-color: bisque;
+        outline: none;
+        border-radius: 10px;
+        text-align: center;
+    }
+    p{
+        height:40px;
+        line-height:40px;
+    }
+    marquee{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    #submit,input,p:hover{
+
+        opacity: 0.9;
+        box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);
+    }
+    .en{
+        margin-top: 100px;
+        margin-left: 280px;
+        width:70px;
+        height:40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    #mn{
+        color: gold;
+       font-size:16px;
+       font-weight:800;
+    }
+   
+   
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>BMI CALCULATOR</h2>
+        <marquee behavior="" direction="padding-left" id="mn">Welcome</marquee>
+       
+        <table>
+         <tr>
+          <td><label for="w1">Enter your Weight</label></td>
+          <td><input type="text" name="weight" placeholder="enter your weight" id="w1" required></td>
+          </tr>
+          <tr>
+        <td><label for="h1">Enter your Height</label></td>
+        <td><input type="text" name="height" placeholder="enter your height" id="h1" required></td>
+        </tr>
+        <tr>
+        <td><button id="submit">Calculate BMI</button></td>
+        <td><p id="res">BMI IS</p>
+        </tr>
+        </table>
+        <div class="en">Time</div>
+     
+    </div>
+    <script>
+        const d1=document.querySelector(".en");
+        const we=document.querySelector("#w1");
+        const he=document.querySelector("#h1");
+        const result=document.querySelector("#res");
+        const btn=document.querySelector("#submit");
+
+       btn.addEventListener("click",()=>{
+           var e1=we.value;
+           var e2=he.value;
+           var t=Math.floor(e1/(e2*e2));
+           result.innerHTML=t;
+        });
+        function  clock(){
+            const date=new Date();
+            const time=date.getHours() +":" +date.getMinutes() +":" +date.getSeconds();
+            d1.innerHTML=time;
+
+            if(date.getHours()<=12){
+                document.querySelector("#mn").innerHTML="Welcome To All !!.. Good Morning";
+            }
+            else if(date.getHours()>=12 && date.getHours()<=17){
+                document.querySelector("#mn").innerHTML="Welcome To All !!.. Good Afternoon";
+            }
+            else{
+                document.querySelector("#mn").innerHTML="Welcome To All !!.. Good Evening"; 
+            }
+        }
+        setInterval(clock,1000);
+    </script>
+</body>
+</html>
